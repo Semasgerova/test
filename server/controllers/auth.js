@@ -7,7 +7,7 @@ const register = async(req,res) =>{
     try {
         const {username, password, email} = req.body;
 
-        const user = await AuthSchema.findOne(email);
+        const user = await AuthSchema.findOne({email});
 
         if(user){
             return res.status(500).json({msg: 'There is such a user!!'})
@@ -42,7 +42,7 @@ const login = async(req,res) =>{
     try {
         const {email, password}  = req.body;
 
-        const user = await AuthSchema.findOne(email);
+        const user = await AuthSchema.findOne({email});
         if(!user){
             return res.status(500).json({msg: 'No such user found!!'})
         }

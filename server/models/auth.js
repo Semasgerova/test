@@ -16,7 +16,7 @@ const AuthSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    username: {
+    date: {
         type: Date,
         default: new Date()
     }
