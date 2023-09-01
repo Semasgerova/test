@@ -9,13 +9,12 @@ import Navbar from './components/Navbar';
 
 function App() {
   const [token] =useToken();
-  console.log(token.token);
   return (
     <div>
    <BrowserRouter>
-   {token.token && <Navbar/>}
+   {token?.token && <Navbar/>}
    <Routes>
-   <Route path='/' element={!token.token ? <Link to='/auth'></Link> : <Home/>}></Route>
+   <Route path='/' element={!token?.token ? <Link to='/auth'></Link> : <Home/>}></Route>
     <Route path='/auth' element={<Auth/>}></Route>
    </Routes>
    </BrowserRouter>
